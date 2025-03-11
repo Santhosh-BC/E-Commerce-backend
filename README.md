@@ -101,34 +101,6 @@ The server will start on `http://localhost:3000/`
 
 ---
 
-## Database Schema
-
-### User Model
-```js
-User.init({
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  name: { type: DataTypes.STRING, allowNull: false },
-  email: { type: DataTypes.STRING, allowNull: false, unique: true },
-  password: { type: DataTypes.STRING, allowNull: false },
-  role: { type: DataTypes.ENUM('Admin', 'Customer'), defaultValue: 'Customer' }
-});
-```
-
-### Product Model
-```js
-Product.init({
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  name: { type: DataTypes.STRING, allowNull: false },
-  description: { type: DataTypes.STRING },
-  price: { type: DataTypes.FLOAT, allowNull: false },
-  stock: { type: DataTypes.INTEGER, allowNull: false },
-  imageUrl: { type: DataTypes.STRING },
-  CategoryId: { type: DataTypes.INTEGER, allowNull: false }
-});
-```
-
----
-
 ## Security & Best Practices
 - **JWT Authentication**: All protected routes require a valid JWT.
 - **Role-Based Authorization**: Only Admin users can manage products & categories.
