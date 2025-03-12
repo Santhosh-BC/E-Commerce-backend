@@ -60,9 +60,6 @@ exports.getOrderHistory = async (req, res, next) => {
     // Users view only their orders.
     const orders = await Order.findAll({
       where: { userId: req.user.userId },
-      // include: [
-      //   OrderItem, // requires association as defined above
-      // ],
       order: [['createdAt', 'DESC']]
     });
     
